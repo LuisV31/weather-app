@@ -14,35 +14,55 @@ const fetchWeather = async (location) => {
   }
 };
 
-const fetchGif = async (query) => {
-  try {
-    const response = await fetch(
-      `https://api.giphy.com/v1/gifs/translate?api_key=${giphyApiKey}&s=${query}`,
-      { mode: "cors" }
-    );
-    const data = await response.json();
-    return data.data.images.original.url;
-  } catch (error) {
-    console.log("Error fetching GIF:", error);
-    return null;
-  }
-};
+// const fetchGif = async (query) => {
+//   try {
+//     const response = await fetch(
+//       `https://api.giphy.com/v1/gifs/translate?api_key=${giphyApiKey}&s=${query}`,
+//       { mode: "cors" }
+//     );
+//     const data = await response.json();
+//     return data.data.images.original.url;
+//   } catch (error) {
+//     console.log("Error fetching GIF:", error);
+//     return null;
+//   }
+// };
 
 const processWeatherData = (data) => {
-  const requiredData = {
+  const todaysForecast = {
     location: data.resolvedAddress,
-    temperature: data.currentConditions.temp,
+    icon: data.days[0].icon,
+    temperatureHigh: data.days[0].tempmax,
+    temperatureLow: data.days[0].tempmin,
+    conditions: data.days[0].conditions,
+  };
+
+  const currentWeather = {
+    location: data.resolvedAddress,
+    icon: data.currentConditions.icon,
     conditions: data.currentConditions.conditions,
+    temperature: data.currentConditions.temp,
     humidity: data.currentConditions.humidity,
     windSpeed: data.currentConditions.windspeed,
-    icon: data.currentConditions.icon,
   };
-  return requiredData;
+
+  const weeklyForecast = data.days.slice(0, 7).map((day) => ({
+    date: day.datetime,
+    icon: day.icon,
+    conditions: day.conditions,
+    temperatureHigh: day.tempmax,
+    temperatureLow: day.tempmin,
+  }));
+
+  return {
+    todaysForecast,
+    currentWeather,
+    weeklyForecast,
+  };
 };
 
 const displayWeather = async (data) => {
   const weatherInfoDiv = document.getElementById("weatherInfo");
-  const gifUrl = await fetchGif(data.icon); //Fetch the GIF based on icon name
   weatherInfoDiv.innerHTML = `
     <h2>Weather in ${data.location}</h2>
     <p>Temperature: ${data.temperature}</p>

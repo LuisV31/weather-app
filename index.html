@@ -8,7 +8,28 @@
   </head>
   <body>
     <div class="container">
-      <h1>Weather App</h1>
+      <div class="current-day">
+        <header>
+          <h1>JUL 30, 2024</h1>
+        </header>
+        <div class="weather-info">
+          <img src="#" alt="today-weather-icon" class="weather-icon" />
+          <div class="daily-high-temp">
+            <div class="high-Digit"></div>
+            <p>High</p>
+          </div>
+          <div class="daily-low-temp">
+            <div class="low-Digit"></div>
+            <p>Low</p>
+          </div>
+        </div>
+        <p id="todaysWeatherDescription">
+          Today will be party cloud to mostly clouds, I will fill this up just
+          to get a visual. You better have AC because it's going to be a
+          scorcher.
+        </p>
+      </div>
+
       <form id="locationForm">
         <input
           type="text"
@@ -18,8 +39,8 @@
         />
         <button type="submit">Get Weather</button>
       </form>
+
       <div id="loading" style="display: none">Loading...</div>
-      <div id="weatherInfo"></div>
     </div>
     <script src="script.js"></script>
   </body>
