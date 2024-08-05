@@ -10,24 +10,25 @@
     <div class="container">
       <div class="current-day">
         <header>
-          <h1>JUL 30, 2024</h1>
+          <h1 id="location">Location's Weather for:</h1>
+          <h2 id="date"></h2>
         </header>
         <div class="weather-info">
-          <img src="#" alt="today-weather-icon" class="weather-icon" />
-          <div class="daily-high-temp">
-            <div class="high-Digit"></div>
-            <p>High</p>
+          <div class="weather-icon-container">
+            <img src="#" alt="today-weather-icon" class="weather-icon" />
           </div>
-          <div class="daily-low-temp">
-            <div class="low-Digit"></div>
-            <p>Low</p>
+          <div class="temperature">
+            <div class="high-temp">
+              <div class="temp-digit"></div>
+              <p class="temp-label">High</p>
+            </div>
+            <div class="low-temp">
+              <div class="temp-digit"></div>
+              <p class="temp-label">Low</p>
+            </div>
           </div>
         </div>
-        <p id="todaysWeatherDescription">
-          Today will be party cloud to mostly clouds, I will fill this up just
-          to get a visual. You better have AC because it's going to be a
-          scorcher.
-        </p>
+        <p id="todaysWeatherDescription"></p>
       </div>
 
       <form id="locationForm">
