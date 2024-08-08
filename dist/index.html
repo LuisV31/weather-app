@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App Project</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+  <script defer src="bundle.js"></script></head>
+  <body>
+    <div class="container">
+      <div class="current-day">
+        <header>
+          <h1 id="location">Location's Weather for:</h1>
+          <h2 id="date"></h2>
+        </header>
+        <div class="weather-info">
+          <div class="weather-icon-container">
+            <img src="#" alt="today-weather-icon" class="weather-icon" />
+          </div>
+          <div class="temperature">
+            <div class="high-temp">
+              <div class="temp-digit"></div>
+              <p class="temp-label">High</p>
+            </div>
+            <div class="low-temp">
+              <div class="temp-digit"></div>
+              <p class="temp-label">Low</p>
+            </div>
+          </div>
+        </div>
+        <p id="todaysWeatherDescription"></p>
+      </div>
+
+      <form id="locationForm">
+        <input
+          type="text"
+          id="locationInput"
+          placeholder="Enter Location"
+          required
+        />
+        <button type="submit">Get Weather</button>
+      </form>
+
+      <div id="loading" style="display: none">Loading...</div>
+    </div>
+    <script src="bundle.js"></script>
+  </body>
+</html>
