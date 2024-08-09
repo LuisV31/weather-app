@@ -18,6 +18,14 @@ body {
   max-width: 600px;
 }
 
+.todays-forecast {
+  gap: 10px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .current-day header {
   margin-bottom: 20px;
 }
@@ -101,4 +109,64 @@ button {
 
 #loading {
   margin-top: 20px;
+}
+
+.current-weather {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  gap: 10px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.current-weather header h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.weather-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weather-icon-container {
+  text-align: center;
+}
+
+.weather-description {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.current-temp {
+  text-align: center;
+}
+
+.current-temp .temp-digit {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.weather-stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-title {
+  font-size: 14px;
+  color: #555;
+}
+
+.stat-info {
+  font-size: 18px;
+  font-weight: bold;
 }

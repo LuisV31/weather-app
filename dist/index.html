@@ -8,7 +8,7 @@
   <script defer src="bundle.js"></script></head>
   <body>
     <div class="container">
-      <div class="current-day">
+      <div class="todays-forecast">
         <header>
           <h1 id="location">Location's Weather for:</h1>
           <h2 id="date"></h2>
@@ -29,18 +29,59 @@
           </div>
         </div>
         <p id="todaysWeatherDescription"></p>
+        <form id="locationForm">
+          <input
+            type="text"
+            id="locationInput"
+            placeholder="Enter Location"
+            required
+          />
+          <button type="submit">Get Weather</button>
+        </form>
       </div>
 
-      <form id="locationForm">
-        <input
-          type="text"
-          id="locationInput"
-          placeholder="Enter Location"
-          required
-        />
-        <button type="submit">Get Weather</button>
-      </form>
-
+      <div class="current-weather">
+        <header>
+          <h2>Current Weather, (<span id="localTime"></span>)</h2>
+        </header>
+        <div class="weather-summary">
+          <div class="weather-icon-container">
+            <img src="#" alt="current-weather-icon" class="weather-icon" />
+            <p class="weather-description"></p>
+          </div>
+          <div class="current-temp">
+            <p class="temp-digit"></p>
+          </div>
+        </div>
+        <div class="weather-stats">
+          <div class="stat">
+            <p class="stat-title">Feels Like</p>
+            <p class="stat-info" id="feelsLike"></p>
+          </div>
+          <div class="stat">
+            <p class="stat-title">Humidity</p>
+            <p class="stat-info" id="humidity"></p>
+          </div>
+          <div class="stat">
+            <p class="stat-title">Visibility</p>
+            <p class="stat-info" id="visibility"></p>
+          </div>
+        </div>
+        <div class="weather-stats">
+          <div class="stat">
+            <p class="stat-title">Wind Speed</p>
+            <p class="stat-info" id="windSpeed"></p>
+          </div>
+          <div class="stat">
+            <p class="stat-title">Wind Gust</p>
+            <p class="stat-info" id="windGust"></p>
+          </div>
+          <div class="stat">
+            <p class="stat-title">Wind Direction</p>
+            <p class="stat-info" id="windDirection"></p>
+          </div>
+        </div>
+      </div>
       <div id="loading" style="display: none">Loading...</div>
     </div>
     <script src="bundle.js"></script>

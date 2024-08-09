@@ -41,6 +41,14 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
   max-width: 600px;
 }
 
+.todays-forecast {
+  gap: 10px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .current-day header {
   margin-bottom: 20px;
 }
@@ -125,7 +133,67 @@ button {
 #loading {
   margin-top: 20px;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/styles.css"],"names":[],"mappings":"AAAA;EACE,yCAAyC;EACzC,yBAAyB;EACzB,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,aAAa;EACb,SAAS;AACX;;AAEA;EACE,uBAAuB;EACvB,aAAa;EACb,kBAAkB;EAClB,uCAAuC;EACvC,kBAAkB;EAClB,WAAW;EACX,gBAAgB;AAClB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,eAAe;EACf,SAAS;AACX;;AAEA;EACE,eAAe;EACf,WAAW;EACX,SAAS;AACX;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;EACnB,cAAc;AAChB;;AAEA;EACE,OAAO;EACP,aAAa;EACb,uBAAuB;AACzB;;AAEA;EACE,YAAY;EACZ,aAAa;AACf;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,OAAO;AACT;;AAEA;;EAEE,aAAa;EACb,sBAAsB;EACtB,mBAAmB;AACrB;;AAEA;EACE,eAAe;EACf,iBAAiB;AACnB;;AAEA;EACE,eAAe;EACf,WAAW;EACX,eAAe;AACjB;;AAEA;EACE,gBAAgB;EAChB,eAAe;EACf,WAAW;AACb;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,eAAe;EACf,eAAe;EACf,WAAW;EACX,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,eAAe;EACf,eAAe;AACjB;;AAEA;EACE,gBAAgB;AAClB","sourcesContent":["body {\n  font-family: Arial, Helvetica, sans-serif;\n  background-color: #f0f0f0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  margin: 0;\n}\n\n.container {\n  background-color: white;\n  padding: 20px;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  text-align: center;\n  width: 100%;\n  max-width: 600px;\n}\n\n.current-day header {\n  margin-bottom: 20px;\n}\n\n#location {\n  font-size: 24px;\n  margin: 0;\n}\n\n#date {\n  font-size: 18px;\n  color: #555;\n  margin: 0;\n}\n\n.weather-info {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  margin: 20px 0;\n}\n\n.weather-icon-container {\n  flex: 1;\n  display: flex;\n  justify-content: center;\n}\n\n.weather-icon {\n  width: 120px;\n  height: 120px;\n}\n\n.temperature {\n  display: flex;\n  justify-content: space-around;\n  flex: 2;\n}\n\n.high-temp,\n.low-temp {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.temp-digit {\n  font-size: 32px;\n  font-weight: bold;\n}\n\n.temp-label {\n  font-size: 16px;\n  color: #555;\n  margin-top: 5px;\n}\n\n#todaysWeatherDescription {\n  margin-top: 20px;\n  font-size: 18px;\n  color: #333;\n}\n\nform {\n  margin-bottom: 20px;\n}\n\ninput {\n  padding: 10px;\n  font-size: 16px;\n  cursor: pointer;\n  width: 100%;\n  max-width: 300px;\n}\n\nbutton {\n  padding: 10px 20px;\n  font-size: 16px;\n  cursor: pointer;\n}\n\n#loading {\n  margin-top: 20px;\n}\n"],"sourceRoot":""}]);
+
+.current-weather {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  gap: 10px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.current-weather header h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.weather-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weather-icon-container {
+  text-align: center;
+}
+
+.weather-description {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.current-temp {
+  text-align: center;
+}
+
+.current-temp .temp-digit {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.weather-stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-title {
+  font-size: 14px;
+  color: #555;
+}
+
+.stat-info {
+  font-size: 18px;
+  font-weight: bold;
+}
+`, "",{"version":3,"sources":["webpack://./src/styles/styles.css"],"names":[],"mappings":"AAAA;EACE,yCAAyC;EACzC,yBAAyB;EACzB,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,aAAa;EACb,SAAS;AACX;;AAEA;EACE,uBAAuB;EACvB,aAAa;EACb,kBAAkB;EAClB,uCAAuC;EACvC,kBAAkB;EAClB,WAAW;EACX,gBAAgB;AAClB;;AAEA;EACE,SAAS;EACT,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,uCAAuC;AACzC;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,eAAe;EACf,SAAS;AACX;;AAEA;EACE,eAAe;EACf,WAAW;EACX,SAAS;AACX;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;EACnB,cAAc;AAChB;;AAEA;EACE,OAAO;EACP,aAAa;EACb,uBAAuB;AACzB;;AAEA;EACE,YAAY;EACZ,aAAa;AACf;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,OAAO;AACT;;AAEA;;EAEE,aAAa;EACb,sBAAsB;EACtB,mBAAmB;AACrB;;AAEA;EACE,eAAe;EACf,iBAAiB;AACnB;;AAEA;EACE,eAAe;EACf,WAAW;EACX,eAAe;AACjB;;AAEA;EACE,gBAAgB;EAChB,eAAe;EACf,WAAW;AACb;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,eAAe;EACf,eAAe;EACf,WAAW;EACX,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,eAAe;EACf,eAAe;AACjB;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,uCAAuC;EACvC,SAAS;EACT,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,uCAAuC;AACzC;;AAEA;EACE,eAAe;EACf,SAAS;AACX;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,gBAAgB;EAChB,eAAe;EACf,WAAW;AACb;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,eAAe;EACf,iBAAiB;AACnB;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,eAAe;EACf,WAAW;AACb;;AAEA;EACE,eAAe;EACf,iBAAiB;AACnB","sourcesContent":["body {\n  font-family: Arial, Helvetica, sans-serif;\n  background-color: #f0f0f0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  margin: 0;\n}\n\n.container {\n  background-color: white;\n  padding: 20px;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  text-align: center;\n  width: 100%;\n  max-width: 600px;\n}\n\n.todays-forecast {\n  gap: 10px;\n  padding: 20px;\n  background-color: #fff;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n\n.current-day header {\n  margin-bottom: 20px;\n}\n\n#location {\n  font-size: 24px;\n  margin: 0;\n}\n\n#date {\n  font-size: 18px;\n  color: #555;\n  margin: 0;\n}\n\n.weather-info {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  margin: 20px 0;\n}\n\n.weather-icon-container {\n  flex: 1;\n  display: flex;\n  justify-content: center;\n}\n\n.weather-icon {\n  width: 120px;\n  height: 120px;\n}\n\n.temperature {\n  display: flex;\n  justify-content: space-around;\n  flex: 2;\n}\n\n.high-temp,\n.low-temp {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.temp-digit {\n  font-size: 32px;\n  font-weight: bold;\n}\n\n.temp-label {\n  font-size: 16px;\n  color: #555;\n  margin-top: 5px;\n}\n\n#todaysWeatherDescription {\n  margin-top: 20px;\n  font-size: 18px;\n  color: #333;\n}\n\nform {\n  margin-bottom: 20px;\n}\n\ninput {\n  padding: 10px;\n  font-size: 16px;\n  cursor: pointer;\n  width: 100%;\n  max-width: 300px;\n}\n\nbutton {\n  padding: 10px 20px;\n  font-size: 16px;\n  cursor: pointer;\n}\n\n#loading {\n  margin-top: 20px;\n}\n\n.current-weather {\n  display: grid;\n  grid-template-rows: auto auto auto auto;\n  gap: 10px;\n  padding: 20px;\n  background-color: #fff;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n\n.current-weather header h2 {\n  font-size: 20px;\n  margin: 0;\n}\n\n.weather-summary {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.weather-icon-container {\n  text-align: center;\n}\n\n.weather-description {\n  margin-top: 10px;\n  font-size: 14px;\n  color: #555;\n}\n\n.current-temp {\n  text-align: center;\n}\n\n.current-temp .temp-digit {\n  font-size: 36px;\n  font-weight: bold;\n}\n\n.weather-stats {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n}\n\n.stat {\n  text-align: center;\n}\n\n.stat-title {\n  font-size: 14px;\n  color: #555;\n}\n\n.stat-info {\n  font-size: 18px;\n  font-weight: bold;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -581,9 +649,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   displayWeather: () => (/* binding */ displayWeather)
 /* harmony export */ });
 const displayWeather = (data) => {
-  const { todaysForecast } = data;
-  const weatherInfoDiv = document.querySelector(".current-day");
+  const { todaysForecast, currentWeather } = data;
 
+  // Cache DOM elements
+  const weatherInfoDiv = document.querySelector(".todays-forecast");
+  const currentWeatherDiv = document.querySelector(".current-weather");
+
+  // Today's Forecast
   const utcDate = new Date(todaysForecast.time);
   const localDate = new Date(
     utcDate.getTime() + utcDate.getTimezoneOffset() * 60000
@@ -613,6 +685,61 @@ const displayWeather = (data) => {
   ).textContent = `${todaysForecast.lowTemp}°F`;
   weatherInfoDiv.querySelector("#todaysWeatherDescription").textContent =
     todaysForecast.description;
+
+  // Current Weather
+  currentWeatherDiv.querySelector("#localTime").textContent =
+    currentWeather.time;
+  currentWeatherDiv.querySelector(
+    ".weather-summary .weather-icon"
+  ).src = `images/icons/${currentWeather.icon}.svg`;
+  currentWeatherDiv.querySelector(
+    ".weather-summary .weather-description"
+  ).textContent = currentWeather.conditions;
+  currentWeatherDiv.querySelector(
+    ".current-temp .temp-digit"
+  ).textContent = `${currentWeather.temperature}°F`;
+
+  currentWeatherDiv.querySelector(
+    "#feelsLike"
+  ).textContent = `${currentWeather.feelsLike}°F`;
+  currentWeatherDiv.querySelector(
+    "#humidity"
+  ).textContent = `${currentWeather.humidity}%`;
+  currentWeatherDiv.querySelector(
+    "#windSpeed"
+  ).textContent = `${currentWeather.windSpeed} mph`;
+  currentWeatherDiv.querySelector(
+    "#windGust"
+  ).textContent = `${currentWeather.windGust} mph`;
+  currentWeatherDiv.querySelector("#windDirection").textContent =
+    getWindDirection(currentWeather.windDirection);
+  currentWeatherDiv.querySelector(
+    "#visibility"
+  ).textContent = `${currentWeather.visibility} miles`;
+};
+
+// Utility function to get wind direction from degrees
+const getWindDirection = (degree) => {
+  const direction = [
+    "N",
+    "NNE",
+    "NE",
+    "ENE",
+    "E",
+    "ESE",
+    "SE",
+    "SSE",
+    "S",
+    "SSW",
+    "SW",
+    "WSW",
+    "W",
+    "WNW",
+    "NW",
+    "NNW",
+  ];
+  const index = Math.round(degree / 22.5) % 16;
+  return direction[index];
 };
 
 
@@ -721,7 +848,8 @@ const processWeatherData = (data) => {
     feelsLike: data.currentConditions.feelslike,
     humidity: data.currentConditions.humidity,
     windSpeed: data.currentConditions.windspeed,
-    uvIndex: data.currentConditions.uvindex,
+    windGust: data.currentConditions.windgust,
+    windDirection: data.currentConditions.winddir,
     visibility: data.currentConditions.visibility,
   };
 

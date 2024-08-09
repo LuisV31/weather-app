@@ -32,7 +32,8 @@ export const processWeatherData = (data) => {
     feelsLike: data.currentConditions.feelslike,
     humidity: data.currentConditions.humidity,
     windSpeed: data.currentConditions.windspeed,
-    uvIndex: data.currentConditions.uvindex,
+    windGust: data.currentConditions.windgust,
+    windDirection: data.currentConditions.winddir,
     visibility: data.currentConditions.visibility,
   };
 
