@@ -50,10 +50,19 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
 .todays-forecast {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out elements vertically */
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styling */
+.todays-forecast header {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 /* Aligns .current-weather in the second column of the top row */
@@ -111,11 +120,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
 .weather-icon-container {
   justify-content: center;
+  display: flex;
 }
 
 .weather-icon {
@@ -126,7 +136,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
 .temperature {
   display: flex;
   justify-content: space-around;
-  flex: 2;
+  align-items: center;
+  width: 100%;
 }
 
 .high-temp,
@@ -134,6 +145,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 10px;
 }
 
 .temp-digit {
@@ -148,20 +160,23 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
 }
 
 #todaysWeatherDescription {
-  margin-top: 20px;
+  margin: 20px 0;
   font-size: 18px;
   color: #333;
+  text-align: center;
 }
 
+/* Form Styling */
 form {
-  margin-bottom: 20px;
+  display: flex;
+  justify-content: center; /* Center the form horizontally */
+  margin-top: 20px;
 }
 
 input {
   padding: 10px;
   font-size: 16px;
-  cursor: pointer;
-  width: 100%;
+  margin-right: 10px; /* Add space between input and button */
   max-width: 300px;
 }
 
@@ -215,7 +230,7 @@ button {
   font-size: 18px;
   font-weight: bold;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/styles.css"],"names":[],"mappings":"AAAA;EACE,yCAAyC;EACzC,yBAAyB;EACzB,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,aAAa;EACb,SAAS;AACX;;AAEA;EACE,aAAa;EACb,8BAA8B,EAAE,+BAA+B;EAC/D,4BAA4B,EAAE,gDAAgD;EAC9E,SAAS,EAAE,6BAA6B;EACxC,WAAW;EACX,iBAAiB;EACjB,YAAY,EAAE,qDAAqD;EACnE,aAAa;EACb,uBAAuB;EACvB,kBAAkB;EAClB,uCAAuC;EACvC,gBAAgB,EAAE,4BAA4B;AAChD;;AAEA,+DAA+D;AAC/D;EACE,kBAAkB;EAClB,eAAe;EACf,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,uCAAuC;AACzC;;AAEA,gEAAgE;AAChE;EACE,kBAAkB;EAClB,eAAe;EACf,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,uCAAuC;AACzC;;AAEA,oEAAoE;AACpE;EACE,kBAAkB;EAClB,eAAe;EACf,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,uCAAuC;EACvC,iBAAiB,EAAE,+CAA+C;EAClE,gBAAgB,EAAE,4CAA4C;AAChE;;AAEA;EACE,aAAa;EACb,8BAA8B,EAAE,iCAAiC;EACjE,SAAS;AACX;;AAEA;EACE,OAAO;EACP,kBAAkB;EAClB,aAAa;EACb,aAAa;EACb,yBAAyB;EACzB,kBAAkB;EAClB,sCAAsC;EACtC,gBAAgB,EAAE,4CAA4C;AAChE;;AAEA,iBAAiB;AACjB;EACE,eAAe;EACf,SAAS;AACX;;AAEA;EACE,eAAe;EACf,WAAW;EACX,SAAS;AACX;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;EACnB,cAAc;AAChB;;AAEA;EACE,uBAAuB;AACzB;;AAEA;EACE,YAAY;EACZ,aAAa;AACf;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,OAAO;AACT;;AAEA;;EAEE,aAAa;EACb,sBAAsB;EACtB,mBAAmB;AACrB;;AAEA;EACE,eAAe;EACf,iBAAiB;AACnB;;AAEA;EACE,eAAe;EACf,WAAW;EACX,eAAe;AACjB;;AAEA;EACE,gBAAgB;EAChB,eAAe;EACf,WAAW;AACb;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,eAAe;EACf,eAAe;EACf,WAAW;EACX,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,eAAe;EACf,eAAe;AACjB;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,eAAe;EACf,WAAW;AACb;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,eAAe;EACf,iBAAiB;AACnB;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,eAAe;EACf,WAAW;AACb;;AAEA;EACE,eAAe;EACf,iBAAiB;AACnB","sourcesContent":["body {\n  font-family: Arial, Helvetica, sans-serif;\n  background-color: #f0f0f0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  margin: 0;\n}\n\n.container {\n  display: grid;\n  grid-template-columns: 1fr 1fr; /* Two columns of equal width */\n  grid-template-rows: auto 1fr; /* Two rows, second row taking remaining space */\n  gap: 20px; /* Space between grid items */\n  width: 100%;\n  max-width: 1000px;\n  height: 90vh; /* Ensure container does not exceed viewport height */\n  padding: 20px;\n  background-color: white;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  overflow: hidden; /* Prevent overflow issues */\n}\n\n/* Aligns .todays-forecast in the first column of the top row */\n.todays-forecast {\n  grid-column: 1 / 2;\n  grid-row: 1 / 2;\n  padding: 20px;\n  background-color: #fff;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n\n/* Aligns .current-weather in the second column of the top row */\n.current-weather {\n  grid-column: 2 / 3;\n  grid-row: 1 / 2;\n  padding: 20px;\n  background-color: #fff;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n\n/* Spans .seven-day-forecast across both columns in the bottom row */\n.seven-day-forecast {\n  grid-column: 1 / 3;\n  grid-row: 2 / 3;\n  padding: 10px;\n  background-color: #fff;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  max-height: 200px; /* Limit the height of the seven-day forecast */\n  overflow-x: auto; /* Allow horizontal scrolling if necessary */\n}\n\n.seven-day-container {\n  display: flex;\n  justify-content: space-between; /* Distribute the 7 divs evenly */\n  gap: 10px;\n}\n\n.seven-day-forecast__day {\n  flex: 1;\n  text-align: center;\n  padding: 10px;\n  margin: 0 5px;\n  background-color: #f9f9f9;\n  border-radius: 4px;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  min-width: 120px; /* Ensure each day div has a minimum width */\n}\n\n/* Other styles */\n#location {\n  font-size: 24px;\n  margin: 0;\n}\n\n#date {\n  font-size: 18px;\n  color: #555;\n  margin: 0;\n}\n\n.weather-info {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  margin: 20px 0;\n}\n\n.weather-icon-container {\n  justify-content: center;\n}\n\n.weather-icon {\n  width: 120px;\n  height: 120px;\n}\n\n.temperature {\n  display: flex;\n  justify-content: space-around;\n  flex: 2;\n}\n\n.high-temp,\n.low-temp {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.temp-digit {\n  font-size: 32px;\n  font-weight: bold;\n}\n\n.temp-label {\n  font-size: 16px;\n  color: #555;\n  margin-top: 5px;\n}\n\n#todaysWeatherDescription {\n  margin-top: 20px;\n  font-size: 18px;\n  color: #333;\n}\n\nform {\n  margin-bottom: 20px;\n}\n\ninput {\n  padding: 10px;\n  font-size: 16px;\n  cursor: pointer;\n  width: 100%;\n  max-width: 300px;\n}\n\nbutton {\n  padding: 10px 20px;\n  font-size: 16px;\n  cursor: pointer;\n}\n\n#loading {\n  margin-top: 20px;\n}\n\n.weather-summary {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n}\n\n.weather-description {\n  margin-top: 10px;\n  font-size: 14px;\n  color: #555;\n}\n\n.current-temp {\n  text-align: center;\n}\n\n.current-temp .temp-digit {\n  font-size: 36px;\n  font-weight: bold;\n}\n\n.weather-stats {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n}\n\n.stat {\n  text-align: center;\n}\n\n.stat-title {\n  font-size: 14px;\n  color: #555;\n}\n\n.stat-info {\n  font-size: 18px;\n  font-weight: bold;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/styles.css"],"names":[],"mappings":"AAAA;EACE,yCAAyC;EACzC,yBAAyB;EACzB,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,aAAa;EACb,SAAS;AACX;;AAEA;EACE,aAAa;EACb,8BAA8B,EAAE,+BAA+B;EAC/D,4BAA4B,EAAE,gDAAgD;EAC9E,SAAS,EAAE,6BAA6B;EACxC,WAAW;EACX,iBAAiB;EACjB,YAAY,EAAE,qDAAqD;EACnE,aAAa;EACb,uBAAuB;EACvB,kBAAkB;EAClB,uCAAuC;EACvC,gBAAgB,EAAE,4BAA4B;AAChD;;AAEA,+DAA+D;AAC/D;EACE,kBAAkB;EAClB,eAAe;EACf,aAAa;EACb,sBAAsB;EACtB,8BAA8B,EAAE,kCAAkC;EAClE,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,uCAAuC;AACzC;;AAEA,mBAAmB;AACnB;EACE,kBAAkB;EAClB,mBAAmB;AACrB;;AAEA,gEAAgE;AAChE;EACE,kBAAkB;EAClB,eAAe;EACf,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,uCAAuC;AACzC;;AAEA,oEAAoE;AACpE;EACE,kBAAkB;EAClB,eAAe;EACf,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,uCAAuC;EACvC,iBAAiB,EAAE,+CAA+C;EAClE,gBAAgB,EAAE,4CAA4C;AAChE;;AAEA;EACE,aAAa;EACb,8BAA8B,EAAE,iCAAiC;EACjE,SAAS;AACX;;AAEA;EACE,OAAO;EACP,kBAAkB;EAClB,aAAa;EACb,aAAa;EACb,yBAAyB;EACzB,kBAAkB;EAClB,sCAAsC;EACtC,gBAAgB,EAAE,4CAA4C;AAChE;;AAEA,iBAAiB;AACjB;EACE,eAAe;EACf,SAAS;AACX;;AAEA;EACE,eAAe;EACf,WAAW;EACX,SAAS;AACX;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;EACnB,mBAAmB;AACrB;;AAEA;EACE,uBAAuB;EACvB,aAAa;AACf;;AAEA;EACE,YAAY;EACZ,aAAa;AACf;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;EACnB,WAAW;AACb;;AAEA;;EAEE,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,cAAc;AAChB;;AAEA;EACE,eAAe;EACf,iBAAiB;AACnB;;AAEA;EACE,eAAe;EACf,WAAW;EACX,eAAe;AACjB;;AAEA;EACE,cAAc;EACd,eAAe;EACf,WAAW;EACX,kBAAkB;AACpB;;AAEA,iBAAiB;AACjB;EACE,aAAa;EACb,uBAAuB,EAAE,iCAAiC;EAC1D,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,eAAe;EACf,kBAAkB,EAAE,uCAAuC;EAC3D,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,eAAe;EACf,eAAe;AACjB;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;AACrB;;AAEA;EACE,gBAAgB;EAChB,eAAe;EACf,WAAW;AACb;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,eAAe;EACf,iBAAiB;AACnB;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,eAAe;EACf,WAAW;AACb;;AAEA;EACE,eAAe;EACf,iBAAiB;AACnB","sourcesContent":["body {\n  font-family: Arial, Helvetica, sans-serif;\n  background-color: #f0f0f0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  margin: 0;\n}\n\n.container {\n  display: grid;\n  grid-template-columns: 1fr 1fr; /* Two columns of equal width */\n  grid-template-rows: auto 1fr; /* Two rows, second row taking remaining space */\n  gap: 20px; /* Space between grid items */\n  width: 100%;\n  max-width: 1000px;\n  height: 90vh; /* Ensure container does not exceed viewport height */\n  padding: 20px;\n  background-color: white;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  overflow: hidden; /* Prevent overflow issues */\n}\n\n/* Aligns .todays-forecast in the first column of the top row */\n.todays-forecast {\n  grid-column: 1 / 2;\n  grid-row: 1 / 2;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between; /* Space out elements vertically */\n  padding: 20px;\n  background-color: #fff;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n\n/* Header Styling */\n.todays-forecast header {\n  text-align: center;\n  margin-bottom: 20px;\n}\n\n/* Aligns .current-weather in the second column of the top row */\n.current-weather {\n  grid-column: 2 / 3;\n  grid-row: 1 / 2;\n  padding: 20px;\n  background-color: #fff;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n\n/* Spans .seven-day-forecast across both columns in the bottom row */\n.seven-day-forecast {\n  grid-column: 1 / 3;\n  grid-row: 2 / 3;\n  padding: 10px;\n  background-color: #fff;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  max-height: 200px; /* Limit the height of the seven-day forecast */\n  overflow-x: auto; /* Allow horizontal scrolling if necessary */\n}\n\n.seven-day-container {\n  display: flex;\n  justify-content: space-between; /* Distribute the 7 divs evenly */\n  gap: 10px;\n}\n\n.seven-day-forecast__day {\n  flex: 1;\n  text-align: center;\n  padding: 10px;\n  margin: 0 5px;\n  background-color: #f9f9f9;\n  border-radius: 4px;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  min-width: 120px; /* Ensure each day div has a minimum width */\n}\n\n/* Other styles */\n#location {\n  font-size: 24px;\n  margin: 0;\n}\n\n#date {\n  font-size: 18px;\n  color: #555;\n  margin: 0;\n}\n\n.weather-info {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  margin-bottom: 20px;\n}\n\n.weather-icon-container {\n  justify-content: center;\n  display: flex;\n}\n\n.weather-icon {\n  width: 120px;\n  height: 120px;\n}\n\n.temperature {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  width: 100%;\n}\n\n.high-temp,\n.low-temp {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin: 0 10px;\n}\n\n.temp-digit {\n  font-size: 32px;\n  font-weight: bold;\n}\n\n.temp-label {\n  font-size: 16px;\n  color: #555;\n  margin-top: 5px;\n}\n\n#todaysWeatherDescription {\n  margin: 20px 0;\n  font-size: 18px;\n  color: #333;\n  text-align: center;\n}\n\n/* Form Styling */\nform {\n  display: flex;\n  justify-content: center; /* Center the form horizontally */\n  margin-top: 20px;\n}\n\ninput {\n  padding: 10px;\n  font-size: 16px;\n  margin-right: 10px; /* Add space between input and button */\n  max-width: 300px;\n}\n\nbutton {\n  padding: 10px 20px;\n  font-size: 16px;\n  cursor: pointer;\n}\n\n#loading {\n  margin-top: 20px;\n}\n\n.weather-summary {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n}\n\n.weather-description {\n  margin-top: 10px;\n  font-size: 14px;\n  color: #555;\n}\n\n.current-temp {\n  text-align: center;\n}\n\n.current-temp .temp-digit {\n  font-size: 36px;\n  font-weight: bold;\n}\n\n.weather-stats {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n}\n\n.stat {\n  text-align: center;\n}\n\n.stat-title {\n  font-size: 14px;\n  color: #555;\n}\n\n.stat-info {\n  font-size: 18px;\n  font-weight: bold;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
