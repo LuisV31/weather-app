@@ -37,15 +37,19 @@ body {
 }
 
 /* Header Styling */
-.todays-forecast header {
+.todays-forecast header,
+.current-weather header {
   text-align: center;
-  margin-bottom: 20px;
+  margin: 0px;
 }
 
 /* Aligns .current-weather in the second column of the top row */
 .current-weather {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out elements vertically */
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
@@ -97,12 +101,10 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 20px;
 }
 
 .weather-icon-container {
   justify-content: center;
-  display: flex;
 }
 
 .weather-icon {
@@ -147,7 +149,6 @@ body {
 form {
   display: flex;
   justify-content: center; /* Center the form horizontally */
-  margin-top: 20px;
 }
 
 input {
@@ -174,13 +175,14 @@ button {
 }
 
 .weather-description {
-  margin-top: 10px;
+  margin: 0px;
   font-size: 14px;
   color: #555;
 }
 
 .current-temp {
   text-align: center;
+  margin-top: 20px;
 }
 
 .current-temp .temp-digit {
@@ -192,10 +194,12 @@ button {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-top: 20px;
 }
 
 .stat {
   text-align: center;
+  flex: ;
 }
 
 .stat-title {
