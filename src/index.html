@@ -4,11 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App Project</title>
-    <link rel="stylesheet" href="styles/styles.css" />
   </head>
   <body>
     <div class="container">
-      <div class="todays-forecast">
+      <section class="todays-forecast">
         <header>
           <h1 id="location">Location's Weather for:</h1>
           <h2 id="date"></h2>
@@ -38,9 +37,9 @@
           />
           <button type="submit">Get Weather</button>
         </form>
-      </div>
+      </section>
 
-      <div class="current-weather">
+      <section class="current-weather">
         <header>
           <h2>Current Weather, (<span id="localTime"></span>)</h2>
         </header>
@@ -81,7 +80,15 @@
             <p class="stat-info" id="windDirection"></p>
           </div>
         </div>
-      </div>
+      </section>
+
+      <section class="seven-day-forecast">
+        <header>
+          <h1>Seven Day Forecast</h1>
+        </header>
+        <div class="seven-day-container" id="sevenDayContainer"></div>
+      </section>
+
       <div id="loading" style="display: none">Loading...</div>
     </div>
     <script src="bundle.js"></script>

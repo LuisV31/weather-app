@@ -1,44 +1,60 @@
+import { getWindDirection } from "./weatherData";
+
+const formatLocalTimeWithOffset = (epoch, tzoffset) => {
+  const date = new Date((epoch + tzoffset * 60) * 1000); // Adjust epoch time with offset
+  const options = {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  };
+
+  return date.toLocaleTimeString(undefined, options);
+};
+
 export const displayWeather = (data) => {
-  const { todaysForecast, currentWeather } = data;
+  if (!data) return;
+
+  const { todaysForecast, currentWeather, weeklyForecast } = data;
 
   // Cache DOM elements
-  const weatherInfoDiv = document.querySelector(".todays-forecast");
+  const todaysInfoDiv = document.querySelector(".todays-forecast");
   const currentWeatherDiv = document.querySelector(".current-weather");
+  const sevenDayDiv = document.getElementById("sevenDayContainer");
 
-  // Today's Forecast
-  const utcDate = new Date(todaysForecast.time);
-  const localDate = new Date(
-    utcDate.getTime() + utcDate.getTimezoneOffset() * 60000
+  const formattedDate = new Date(todaysForecast.time).toLocaleDateString(
+    undefined,
+    {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    }
   );
-
-  const dateOptions = {
-    weekday: "short",
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  };
-  const formattedDate = localDate.toLocaleDateString(undefined, dateOptions);
 
   document.getElementById(
     "location"
   ).textContent = `${todaysForecast.location} Weather for:`;
   document.getElementById("date").textContent = formattedDate;
 
-  weatherInfoDiv.querySelector(
+  todaysInfoDiv.querySelector(
     ".weather-icon"
   ).src = `images/icons/${todaysForecast.icon}.svg`;
-  weatherInfoDiv.querySelector(
+  todaysInfoDiv.querySelector(
     ".high-temp .temp-digit"
   ).textContent = `${todaysForecast.highTemp}°F`;
-  weatherInfoDiv.querySelector(
+  todaysInfoDiv.querySelector(
     ".low-temp .temp-digit"
   ).textContent = `${todaysForecast.lowTemp}°F`;
-  weatherInfoDiv.querySelector("#todaysWeatherDescription").textContent =
+  todaysInfoDiv.querySelector("#todaysWeatherDescription").textContent =
     todaysForecast.description;
 
-  // Current Weather
-  currentWeatherDiv.querySelector("#localTime").textContent =
-    currentWeather.time;
+  // Update Current Weather elements
+  const localTime = formatLocalTimeWithOffset(
+    currentWeather.datetimeEpoch,
+    currentWeather.tzoffset
+  );
+
+  currentWeatherDiv.querySelector("#localTime").textContent = localTime;
   currentWeatherDiv.querySelector(
     ".weather-summary .weather-icon"
   ).src = `images/icons/${currentWeather.icon}.svg`;
@@ -66,28 +82,25 @@ export const displayWeather = (data) => {
   currentWeatherDiv.querySelector(
     "#visibility"
   ).textContent = `${currentWeather.visibility} miles`;
-};
 
-// Utility function to get wind direction from degrees
-const getWindDirection = (degree) => {
-  const direction = [
-    "N",
-    "NNE",
-    "NE",
-    "ENE",
-    "E",
-    "ESE",
-    "SE",
-    "SSE",
-    "S",
-    "SSW",
-    "SW",
-    "WSW",
-    "W",
-    "WNW",
-    "NW",
-    "NNW",
-  ];
-  const index = Math.round(degree / 22.5) % 16;
-  return direction[index];
+  // Dynamically add weekly forecast elements
+  sevenDayDiv.innerHTML = ""; // Clear previous content
+  weeklyForecast.forEach((day) => {
+    const dayDiv = document.createElement("div");
+    dayDiv.classList.add("seven-day-forecast__day");
+
+    const dayName = new Date(day.date).toLocaleDateString("en-US", {
+      weekday: "short",
+    });
+
+    dayDiv.innerHTML = `
+    <p>${dayName}</p>
+    <img src="images/icons/${day.icon}.svg" alt="${day.conditions}" />
+    <p>High: ${day.temperatureHigh}°F</p>
+    <p>${day.conditions}</p>
+    <p>Low: ${day.temperatureLow}°F</p>
+    `;
+
+    sevenDayDiv.appendChild(dayDiv);
+  });
 };

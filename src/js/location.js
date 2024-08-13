@@ -1,6 +1,7 @@
 import { fetchWeather, processWeatherData } from "./weatherData";
 import { displayWeather } from "./displayWeather";
 
+// Function to reverse geocode using latitude and longitude
 export const reverseGeocode = async (latitude, longitude) => {
   try {
     const response = await fetch(
@@ -19,6 +20,7 @@ export const reverseGeocode = async (latitude, longitude) => {
   }
 };
 
+// Function to get weather data for the user's current location
 export const getUserLocationWeather = () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(

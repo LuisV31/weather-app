@@ -6,7 +6,7 @@ export const fetchWeather = async (location) => {
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=${apiKey}`
     );
     const data = await response.json();
-    console.log(data); // Log the response for debugging
+    console.log("API Response:", data); // Log the full API response
     return data;
   } catch (error) {
     console.error("Error fetching weather data:", error);
@@ -14,6 +14,8 @@ export const fetchWeather = async (location) => {
 };
 
 export const processWeatherData = (data) => {
+  if (!data) return null;
+
   const todaysForecast = {
     location: data.resolvedAddress,
     time: data.days[0].datetime,
@@ -25,7 +27,9 @@ export const processWeatherData = (data) => {
 
   const currentWeather = {
     location: data.resolvedAddress,
-    time: data.currentConditions.datetime,
+    datetimeEpoch: data.currentConditions.datetimeEpoch,
+    timezone: data.timezone,
+    tzoffset: data.tzoffset,
     icon: data.currentConditions.icon,
     conditions: data.currentConditions.conditions,
     temperature: data.currentConditions.temp,
@@ -38,11 +42,10 @@ export const processWeatherData = (data) => {
   };
 
   const weeklyForecast = data.days.slice(1, 8).map((day) => ({
-    location: data.resolvedAddress,
     date: day.datetime,
     icon: day.icon,
-    conditions: day.conditions,
     temperatureHigh: day.tempmax,
+    conditions: day.conditions,
     temperatureLow: day.tempmin,
   }));
 
@@ -51,4 +54,28 @@ export const processWeatherData = (data) => {
     currentWeather,
     weeklyForecast,
   };
+};
+
+// Utility function to get wind direction from degrees
+export const getWindDirection = (degree) => {
+  const direction = [
+    "N",
+    "NNE",
+    "NE",
+    "ENE",
+    "E",
+    "ESE",
+    "SE",
+    "SSE",
+    "S",
+    "SSW",
+    "SW",
+    "WSW",
+    "W",
+    "WNW",
+    "NW",
+    "NNW",
+  ];
+  const index = Math.round(degree / 22.5) % 16;
+  return direction[index];
 };
