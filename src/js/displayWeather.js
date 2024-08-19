@@ -1,14 +1,8 @@
 import { getWindDirection } from "./weatherData";
 
-const formatLocalTimeWithOffset = (epoch, tzoffset) => {
-  const date = new Date((epoch + tzoffset * 60) * 1000); // Adjust epoch time with offset
-  const options = {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: true,
-  };
-
-  return date.toLocaleTimeString(undefined, options);
+// Function to update text content of an element
+const updateElementText = (selector, text) => {
+  document.querySelector(selector).textContent = text;
 };
 
 export const displayWeather = (data) => {
@@ -16,75 +10,89 @@ export const displayWeather = (data) => {
 
   const { todaysForecast, currentWeather, weeklyForecast } = data;
 
-  // Cache DOM elements
-  const todaysInfoDiv = document.querySelector(".todays-forecast");
-  const currentWeatherDiv = document.querySelector(".current-weather");
-  const sevenDayDiv = document.getElementById("sevenDayContainer");
+  updateTodaysWeather(todaysForecast);
+  updateCurrentWeather(currentWeather);
+  updateWeeklyForecast(weeklyForecast);
+};
 
-  const formattedDate = new Date(todaysForecast.time).toLocaleDateString(
-    undefined,
-    {
+const updateTodaysWeather = (todaysForecast) => {
+  console.log("todaysForecast data:", todaysForecast); // Log the entire object
+  console.log("datetimeEpoch:", todaysForecast.datetimeEpoch); // Specifically log datetimeEpoch
+
+  // Utility function to format local time with offset, now local to this function
+  const formatLocalTimeWithOffset = (epoch) => {
+    const date = new Date(epoch * 1000); // Adjust epoch time with offset (tzoffset in hours)
+    const options = {
       weekday: "short",
       month: "short",
       day: "numeric",
       year: "numeric",
-    }
+      hour12: true,
+    };
+    return date.toLocaleString(undefined, options);
+  };
+
+  // Format today's date using local time
+  const formattedDate = formatLocalTimeWithOffset(
+    todaysForecast.datetimeEpoch,
+    todaysForecast.tzoffset
   );
 
-  document.getElementById(
-    "location"
-  ).textContent = `${todaysForecast.location} Weather for:`;
-  document.getElementById("date").textContent = formattedDate;
+  updateElementText("#location", `${todaysForecast.location}'s Weather for:`);
+  updateElementText("#date", formattedDate);
+
+  const todaysInfoDiv = document.querySelector(".todays-forecast");
 
   todaysInfoDiv.querySelector(
     ".weather-icon"
   ).src = `images/icons/${todaysForecast.icon}.svg`;
-  todaysInfoDiv.querySelector(
-    ".high-temp .temp-digit"
-  ).textContent = `${todaysForecast.highTemp}°F`;
-  todaysInfoDiv.querySelector(
-    ".low-temp .temp-digit"
-  ).textContent = `${todaysForecast.lowTemp}°F`;
-  todaysInfoDiv.querySelector("#todaysWeatherDescription").textContent =
-    todaysForecast.description;
 
-  // Update Current Weather elements
-  const localTime = formatLocalTimeWithOffset(
-    currentWeather.datetimeEpoch,
-    currentWeather.tzoffset
-  );
+  updateElementText(".high-temp .temp-digit", `${todaysForecast.highTemp}°F`);
+  updateElementText(".low-temp .temp-digit", `${todaysForecast.lowTemp}°F`);
+  updateElementText("#todaysWeatherDescription", todaysForecast.description);
+};
 
-  currentWeatherDiv.querySelector("#localTime").textContent = localTime;
+const updateCurrentWeather = (currentWeather) => {
+  const currentWeatherDiv = document.querySelector(".current-weather");
+
+  // Format the local time using toLocaleTimeString directly
+  const localTime = new Date(
+    (currentWeather.datetimeEpoch + currentWeather.tzoffset * 60) * 1000
+  ).toLocaleTimeString(undefined, {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+
+  updateElementText("#localTime", localTime);
+
   currentWeatherDiv.querySelector(
     ".weather-summary .weather-icon"
   ).src = `images/icons/${currentWeather.icon}.svg`;
-  currentWeatherDiv.querySelector(
-    ".weather-summary .weather-description"
-  ).textContent = currentWeather.conditions;
-  currentWeatherDiv.querySelector(
-    ".current-temp .temp-digit"
-  ).textContent = `${currentWeather.temperature}°F`;
+  updateElementText(
+    ".weather-summary .weather-description",
+    currentWeather.conditions
+  );
+  updateElementText(
+    ".current-temp .temp-digit",
+    `${currentWeather.temperature}°F`
+  );
 
-  currentWeatherDiv.querySelector(
-    "#feelsLike"
-  ).textContent = `${currentWeather.feelsLike}°F`;
-  currentWeatherDiv.querySelector(
-    "#humidity"
-  ).textContent = `${currentWeather.humidity}%`;
-  currentWeatherDiv.querySelector(
-    "#windSpeed"
-  ).textContent = `${currentWeather.windSpeed} mph`;
-  currentWeatherDiv.querySelector(
-    "#windGust"
-  ).textContent = `${currentWeather.windGust} mph`;
-  currentWeatherDiv.querySelector("#windDirection").textContent =
-    getWindDirection(currentWeather.windDirection);
-  currentWeatherDiv.querySelector(
-    "#visibility"
-  ).textContent = `${currentWeather.visibility} miles`;
+  updateElementText("#feelsLike", `${currentWeather.feelsLike}°F`);
+  updateElementText("#humidity", `${currentWeather.humidity}%`);
+  updateElementText("#windSpeed", `${currentWeather.windSpeed} mph`);
+  updateElementText("#windGust", `${currentWeather.windGust} mph`);
+  updateElementText(
+    "#windDirection",
+    getWindDirection(currentWeather.windDirection)
+  );
+  updateElementText("#visibility", `${currentWeather.visibility} miles`);
+};
 
-  // Dynamically add weekly forecast elements
+const updateWeeklyForecast = (weeklyForecast) => {
+  const sevenDayDiv = document.getElementById("sevenDayContainer");
   sevenDayDiv.innerHTML = ""; // Clear previous content
+
   weeklyForecast.forEach((day) => {
     const dayDiv = document.createElement("div");
     dayDiv.classList.add("seven-day-forecast__day");
@@ -94,11 +102,11 @@ export const displayWeather = (data) => {
     });
 
     dayDiv.innerHTML = `
-    <p>${dayName}</p>
-    <img src="images/icons/${day.icon}.svg" alt="${day.conditions}" />
-    <p>High: ${day.temperatureHigh}°F</p>
-    <p>${day.conditions}</p>
-    <p>Low: ${day.temperatureLow}°F</p>
+      <p>${dayName}</p>
+      <img src="images/icons/${day.icon}.svg" alt="${day.conditions}" />
+      <p>${day.temperatureHigh}°F</p>
+      <p>${day.conditions}</p>
+      <p>${day.temperatureLow}°F</p>
     `;
 
     sevenDayDiv.appendChild(dayDiv);

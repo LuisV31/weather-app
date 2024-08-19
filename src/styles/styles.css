@@ -64,25 +64,40 @@ body {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-height: 200px; /* Limit the height of the seven-day forecast */
-  overflow-x: auto; /* Allow horizontal scrolling if necessary */
+}
+
+.seven-day-forecast header {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .seven-day-container {
-  display: flex;
-  justify-content: space-between; /* Distribute the 7 divs evenly */
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
   gap: 10px;
 }
 
 .seven-day-forecast__day {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  align-items: center;
   padding: 10px;
-  margin: 0 5px;
   background-color: #f9f9f9;
   border-radius: 4px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  min-width: 120px; /* Ensure each day div has a minimum width */
+}
+
+.seven-day-forecast__day img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.seven-day-forecast__day p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
 }
 
 /* Other styles */
@@ -104,7 +119,10 @@ body {
 }
 
 .weather-icon-container {
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .weather-icon {
@@ -199,7 +217,6 @@ button {
 
 .stat {
   text-align: center;
-  flex: ;
 }
 
 .stat-title {

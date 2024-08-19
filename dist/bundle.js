@@ -87,25 +87,40 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-height: 200px; /* Limit the height of the seven-day forecast */
-  overflow-x: auto; /* Allow horizontal scrolling if necessary */
+}
+
+.seven-day-forecast header {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .seven-day-container {
-  display: flex;
-  justify-content: space-between; /* Distribute the 7 divs evenly */
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
   gap: 10px;
 }
 
 .seven-day-forecast__day {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  align-items: center;
   padding: 10px;
-  margin: 0 5px;
   background-color: #f9f9f9;
   border-radius: 4px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  min-width: 120px; /* Ensure each day div has a minimum width */
+}
+
+.seven-day-forecast__day img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.seven-day-forecast__day p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
 }
 
 /* Other styles */
@@ -127,7 +142,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
 }
 
 .weather-icon-container {
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .weather-icon {
@@ -222,7 +240,6 @@ button {
 
 .stat {
   text-align: center;
-  flex: ;
 }
 
 .stat-title {
@@ -234,7 +251,7 @@ button {
   font-size: 18px;
   font-weight: bold;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/styles.css"],"names":[],"mappings":"AAAA;EACE,yCAAyC;EACzC,yBAAyB;EACzB,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,aAAa;EACb,SAAS;AACX;;AAEA;EACE,aAAa;EACb,8BAA8B,EAAE,+BAA+B;EAC/D,4BAA4B,EAAE,gDAAgD;EAC9E,SAAS,EAAE,6BAA6B;EACxC,WAAW;EACX,iBAAiB;EACjB,YAAY,EAAE,qDAAqD;EACnE,aAAa;EACb,uBAAuB;EACvB,kBAAkB;EAClB,uCAAuC;EACvC,gBAAgB,EAAE,4BAA4B;AAChD;;AAEA,+DAA+D;AAC/D;EACE,kBAAkB;EAClB,eAAe;EACf,aAAa;EACb,sBAAsB;EACtB,8BAA8B,EAAE,kCAAkC;EAClE,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,uCAAuC;AACzC;;AAEA,mBAAmB;AACnB;;EAEE,kBAAkB;EAClB,WAAW;AACb;;AAEA,gEAAgE;AAChE;EACE,kBAAkB;EAClB,eAAe;EACf,aAAa;EACb,sBAAsB;EACtB,8BAA8B,EAAE,kCAAkC;EAClE,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,uCAAuC;AACzC;;AAEA,oEAAoE;AACpE;EACE,kBAAkB;EAClB,eAAe;EACf,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,uCAAuC;EACvC,iBAAiB,EAAE,+CAA+C;EAClE,gBAAgB,EAAE,4CAA4C;AAChE;;AAEA;EACE,aAAa;EACb,8BAA8B,EAAE,iCAAiC;EACjE,SAAS;AACX;;AAEA;EACE,OAAO;EACP,kBAAkB;EAClB,aAAa;EACb,aAAa;EACb,yBAAyB;EACzB,kBAAkB;EAClB,sCAAsC;EACtC,gBAAgB,EAAE,4CAA4C;AAChE;;AAEA,iBAAiB;AACjB;EACE,eAAe;EACf,SAAS;AACX;;AAEA;EACE,eAAe;EACf,WAAW;EACX,SAAS;AACX;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;AACrB;;AAEA;EACE,uBAAuB;AACzB;;AAEA;EACE,YAAY;EACZ,aAAa;AACf;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;EACnB,WAAW;AACb;;AAEA;;EAEE,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,cAAc;AAChB;;AAEA;EACE,eAAe;EACf,iBAAiB;AACnB;;AAEA;EACE,eAAe;EACf,WAAW;EACX,eAAe;AACjB;;AAEA;EACE,cAAc;EACd,eAAe;EACf,WAAW;EACX,kBAAkB;AACpB;;AAEA,iBAAiB;AACjB;EACE,aAAa;EACb,uBAAuB,EAAE,iCAAiC;AAC5D;;AAEA;EACE,aAAa;EACb,eAAe;EACf,kBAAkB,EAAE,uCAAuC;EAC3D,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,eAAe;EACf,eAAe;AACjB;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;AACrB;;AAEA;EACE,WAAW;EACX,eAAe;EACf,WAAW;AACb;;AAEA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;;AAEA;EACE,eAAe;EACf,iBAAiB;AACnB;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;EACnB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,MAAM;AACR;;AAEA;EACE,eAAe;EACf,WAAW;AACb;;AAEA;EACE,eAAe;EACf,iBAAiB;AACnB","sourcesContent":["body {\n  font-family: Arial, Helvetica, sans-serif;\n  background-color: #f0f0f0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  margin: 0;\n}\n\n.container {\n  display: grid;\n  grid-template-columns: 1fr 1fr; /* Two columns of equal width */\n  grid-template-rows: auto 1fr; /* Two rows, second row taking remaining space */\n  gap: 20px; /* Space between grid items */\n  width: 100%;\n  max-width: 1000px;\n  height: 90vh; /* Ensure container does not exceed viewport height */\n  padding: 20px;\n  background-color: white;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  overflow: hidden; /* Prevent overflow issues */\n}\n\n/* Aligns .todays-forecast in the first column of the top row */\n.todays-forecast {\n  grid-column: 1 / 2;\n  grid-row: 1 / 2;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between; /* Space out elements vertically */\n  padding: 20px;\n  background-color: #fff;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n\n/* Header Styling */\n.todays-forecast header,\n.current-weather header {\n  text-align: center;\n  margin: 0px;\n}\n\n/* Aligns .current-weather in the second column of the top row */\n.current-weather {\n  grid-column: 2 / 3;\n  grid-row: 1 / 2;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between; /* Space out elements vertically */\n  padding: 20px;\n  background-color: #fff;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n\n/* Spans .seven-day-forecast across both columns in the bottom row */\n.seven-day-forecast {\n  grid-column: 1 / 3;\n  grid-row: 2 / 3;\n  padding: 10px;\n  background-color: #fff;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  max-height: 200px; /* Limit the height of the seven-day forecast */\n  overflow-x: auto; /* Allow horizontal scrolling if necessary */\n}\n\n.seven-day-container {\n  display: flex;\n  justify-content: space-between; /* Distribute the 7 divs evenly */\n  gap: 10px;\n}\n\n.seven-day-forecast__day {\n  flex: 1;\n  text-align: center;\n  padding: 10px;\n  margin: 0 5px;\n  background-color: #f9f9f9;\n  border-radius: 4px;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  min-width: 120px; /* Ensure each day div has a minimum width */\n}\n\n/* Other styles */\n#location {\n  font-size: 24px;\n  margin: 0;\n}\n\n#date {\n  font-size: 18px;\n  color: #555;\n  margin: 0;\n}\n\n.weather-info {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n}\n\n.weather-icon-container {\n  justify-content: center;\n}\n\n.weather-icon {\n  width: 120px;\n  height: 120px;\n}\n\n.temperature {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  width: 100%;\n}\n\n.high-temp,\n.low-temp {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin: 0 10px;\n}\n\n.temp-digit {\n  font-size: 32px;\n  font-weight: bold;\n}\n\n.temp-label {\n  font-size: 16px;\n  color: #555;\n  margin-top: 5px;\n}\n\n#todaysWeatherDescription {\n  margin: 20px 0;\n  font-size: 18px;\n  color: #333;\n  text-align: center;\n}\n\n/* Form Styling */\nform {\n  display: flex;\n  justify-content: center; /* Center the form horizontally */\n}\n\ninput {\n  padding: 10px;\n  font-size: 16px;\n  margin-right: 10px; /* Add space between input and button */\n  max-width: 300px;\n}\n\nbutton {\n  padding: 10px 20px;\n  font-size: 16px;\n  cursor: pointer;\n}\n\n#loading {\n  margin-top: 20px;\n}\n\n.weather-summary {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n}\n\n.weather-description {\n  margin: 0px;\n  font-size: 14px;\n  color: #555;\n}\n\n.current-temp {\n  text-align: center;\n  margin-top: 20px;\n}\n\n.current-temp .temp-digit {\n  font-size: 36px;\n  font-weight: bold;\n}\n\n.weather-stats {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  margin-top: 20px;\n}\n\n.stat {\n  text-align: center;\n  flex: ;\n}\n\n.stat-title {\n  font-size: 14px;\n  color: #555;\n}\n\n.stat-info {\n  font-size: 18px;\n  font-weight: bold;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/styles.css"],"names":[],"mappings":"AAAA;EACE,yCAAyC;EACzC,yBAAyB;EACzB,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,aAAa;EACb,SAAS;AACX;;AAEA;EACE,aAAa;EACb,8BAA8B,EAAE,+BAA+B;EAC/D,4BAA4B,EAAE,gDAAgD;EAC9E,SAAS,EAAE,6BAA6B;EACxC,WAAW;EACX,iBAAiB;EACjB,YAAY,EAAE,qDAAqD;EACnE,aAAa;EACb,uBAAuB;EACvB,kBAAkB;EAClB,uCAAuC;EACvC,gBAAgB,EAAE,4BAA4B;AAChD;;AAEA,+DAA+D;AAC/D;EACE,kBAAkB;EAClB,eAAe;EACf,aAAa;EACb,sBAAsB;EACtB,8BAA8B,EAAE,kCAAkC;EAClE,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,uCAAuC;AACzC;;AAEA,mBAAmB;AACnB;;EAEE,kBAAkB;EAClB,WAAW;AACb;;AAEA,gEAAgE;AAChE;EACE,kBAAkB;EAClB,eAAe;EACf,aAAa;EACb,sBAAsB;EACtB,8BAA8B,EAAE,kCAAkC;EAClE,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,uCAAuC;AACzC;;AAEA,oEAAoE;AACpE;EACE,kBAAkB;EAClB,eAAe;EACf,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,uCAAuC;AACzC;;AAEA;EACE,kBAAkB;EAClB,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,qCAAqC;EACrC,SAAS;AACX;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,mBAAmB;EACnB,aAAa;EACb,yBAAyB;EACzB,kBAAkB;EAClB,sCAAsC;AACxC;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,eAAe;EACf,WAAW;AACb;;AAEA,iBAAiB;AACjB;EACE,eAAe;EACf,SAAS;AACX;;AAEA;EACE,eAAe;EACf,WAAW;EACX,SAAS;AACX;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,kBAAkB;AACpB;;AAEA;EACE,YAAY;EACZ,aAAa;AACf;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;EACnB,WAAW;AACb;;AAEA;;EAEE,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,cAAc;AAChB;;AAEA;EACE,eAAe;EACf,iBAAiB;AACnB;;AAEA;EACE,eAAe;EACf,WAAW;EACX,eAAe;AACjB;;AAEA;EACE,cAAc;EACd,eAAe;EACf,WAAW;EACX,kBAAkB;AACpB;;AAEA,iBAAiB;AACjB;EACE,aAAa;EACb,uBAAuB,EAAE,iCAAiC;AAC5D;;AAEA;EACE,aAAa;EACb,eAAe;EACf,kBAAkB,EAAE,uCAAuC;EAC3D,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,eAAe;EACf,eAAe;AACjB;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;AACrB;;AAEA;EACE,WAAW;EACX,eAAe;EACf,WAAW;AACb;;AAEA;EACE,kBAAkB;EAClB,gBAAgB;AAClB;;AAEA;EACE,eAAe;EACf,iBAAiB;AACnB;;AAEA;EACE,aAAa;EACb,6BAA6B;EAC7B,mBAAmB;EACnB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,eAAe;EACf,WAAW;AACb;;AAEA;EACE,eAAe;EACf,iBAAiB;AACnB","sourcesContent":["body {\n  font-family: Arial, Helvetica, sans-serif;\n  background-color: #f0f0f0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  margin: 0;\n}\n\n.container {\n  display: grid;\n  grid-template-columns: 1fr 1fr; /* Two columns of equal width */\n  grid-template-rows: auto 1fr; /* Two rows, second row taking remaining space */\n  gap: 20px; /* Space between grid items */\n  width: 100%;\n  max-width: 1000px;\n  height: 90vh; /* Ensure container does not exceed viewport height */\n  padding: 20px;\n  background-color: white;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  overflow: hidden; /* Prevent overflow issues */\n}\n\n/* Aligns .todays-forecast in the first column of the top row */\n.todays-forecast {\n  grid-column: 1 / 2;\n  grid-row: 1 / 2;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between; /* Space out elements vertically */\n  padding: 20px;\n  background-color: #fff;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n\n/* Header Styling */\n.todays-forecast header,\n.current-weather header {\n  text-align: center;\n  margin: 0px;\n}\n\n/* Aligns .current-weather in the second column of the top row */\n.current-weather {\n  grid-column: 2 / 3;\n  grid-row: 1 / 2;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between; /* Space out elements vertically */\n  padding: 20px;\n  background-color: #fff;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n\n/* Spans .seven-day-forecast across both columns in the bottom row */\n.seven-day-forecast {\n  grid-column: 1 / 3;\n  grid-row: 2 / 3;\n  padding: 10px;\n  background-color: #fff;\n  border-radius: 8px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n\n.seven-day-forecast header {\n  text-align: center;\n  margin-bottom: 20px;\n}\n\n.seven-day-container {\n  display: grid;\n  grid-template-columns: repeat(7, 1fr);\n  gap: 10px;\n}\n\n.seven-day-forecast__day {\n  display: flex;\n  flex-direction: column;\n  text-align: center;\n  align-items: center;\n  padding: 10px;\n  background-color: #f9f9f9;\n  border-radius: 4px;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n}\n\n.seven-day-forecast__day img {\n  width: 50px;\n  height: 50px;\n  margin-bottom: 10px;\n}\n\n.seven-day-forecast__day p {\n  margin: 5px 0;\n  font-size: 14px;\n  color: #555;\n}\n\n/* Other styles */\n#location {\n  font-size: 24px;\n  margin: 0;\n}\n\n#date {\n  font-size: 18px;\n  color: #555;\n  margin: 0;\n}\n\n.weather-info {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n}\n\n.weather-icon-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n}\n\n.weather-icon {\n  width: 120px;\n  height: 120px;\n}\n\n.temperature {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  width: 100%;\n}\n\n.high-temp,\n.low-temp {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin: 0 10px;\n}\n\n.temp-digit {\n  font-size: 32px;\n  font-weight: bold;\n}\n\n.temp-label {\n  font-size: 16px;\n  color: #555;\n  margin-top: 5px;\n}\n\n#todaysWeatherDescription {\n  margin: 20px 0;\n  font-size: 18px;\n  color: #333;\n  text-align: center;\n}\n\n/* Form Styling */\nform {\n  display: flex;\n  justify-content: center; /* Center the form horizontally */\n}\n\ninput {\n  padding: 10px;\n  font-size: 16px;\n  margin-right: 10px; /* Add space between input and button */\n  max-width: 300px;\n}\n\nbutton {\n  padding: 10px 20px;\n  font-size: 16px;\n  cursor: pointer;\n}\n\n#loading {\n  margin-top: 20px;\n}\n\n.weather-summary {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n}\n\n.weather-description {\n  margin: 0px;\n  font-size: 14px;\n  color: #555;\n}\n\n.current-temp {\n  text-align: center;\n  margin-top: 20px;\n}\n\n.current-temp .temp-digit {\n  font-size: 36px;\n  font-weight: bold;\n}\n\n.weather-stats {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  margin-top: 20px;\n}\n\n.stat {\n  text-align: center;\n}\n\n.stat-title {\n  font-size: 14px;\n  color: #555;\n}\n\n.stat-info {\n  font-size: 18px;\n  font-weight: bold;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -692,15 +709,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _weatherData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./weatherData */ "./src/js/weatherData.js");
 
 
-const formatLocalTimeWithOffset = (epoch, tzoffset) => {
-  const date = new Date((epoch + tzoffset * 60) * 1000); // Adjust epoch time with offset
-  const options = {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: true,
-  };
-
-  return date.toLocaleTimeString(undefined, options);
+// Function to update text content of an element
+const updateElementText = (selector, text) => {
+  document.querySelector(selector).textContent = text;
 };
 
 const displayWeather = (data) => {
@@ -708,75 +719,89 @@ const displayWeather = (data) => {
 
   const { todaysForecast, currentWeather, weeklyForecast } = data;
 
-  // Cache DOM elements
-  const todaysInfoDiv = document.querySelector(".todays-forecast");
-  const currentWeatherDiv = document.querySelector(".current-weather");
-  const sevenDayDiv = document.getElementById("sevenDayContainer");
+  updateTodaysWeather(todaysForecast);
+  updateCurrentWeather(currentWeather);
+  updateWeeklyForecast(weeklyForecast);
+};
 
-  const formattedDate = new Date(todaysForecast.time).toLocaleDateString(
-    undefined,
-    {
+const updateTodaysWeather = (todaysForecast) => {
+  console.log("todaysForecast data:", todaysForecast); // Log the entire object
+  console.log("datetimeEpoch:", todaysForecast.datetimeEpoch); // Specifically log datetimeEpoch
+
+  // Utility function to format local time with offset, now local to this function
+  const formatLocalTimeWithOffset = (epoch) => {
+    const date = new Date(epoch * 1000); // Adjust epoch time with offset (tzoffset in hours)
+    const options = {
       weekday: "short",
       month: "short",
       day: "numeric",
       year: "numeric",
-    }
+      hour12: true,
+    };
+    return date.toLocaleString(undefined, options);
+  };
+
+  // Format today's date using local time
+  const formattedDate = formatLocalTimeWithOffset(
+    todaysForecast.datetimeEpoch,
+    todaysForecast.tzoffset
   );
 
-  document.getElementById(
-    "location"
-  ).textContent = `${todaysForecast.location} Weather for:`;
-  document.getElementById("date").textContent = formattedDate;
+  updateElementText("#location", `${todaysForecast.location}'s Weather for:`);
+  updateElementText("#date", formattedDate);
+
+  const todaysInfoDiv = document.querySelector(".todays-forecast");
 
   todaysInfoDiv.querySelector(
     ".weather-icon"
   ).src = `images/icons/${todaysForecast.icon}.svg`;
-  todaysInfoDiv.querySelector(
-    ".high-temp .temp-digit"
-  ).textContent = `${todaysForecast.highTemp}°F`;
-  todaysInfoDiv.querySelector(
-    ".low-temp .temp-digit"
-  ).textContent = `${todaysForecast.lowTemp}°F`;
-  todaysInfoDiv.querySelector("#todaysWeatherDescription").textContent =
-    todaysForecast.description;
 
-  // Update Current Weather elements
-  const localTime = formatLocalTimeWithOffset(
-    currentWeather.datetimeEpoch,
-    currentWeather.tzoffset
-  );
+  updateElementText(".high-temp .temp-digit", `${todaysForecast.highTemp}°F`);
+  updateElementText(".low-temp .temp-digit", `${todaysForecast.lowTemp}°F`);
+  updateElementText("#todaysWeatherDescription", todaysForecast.description);
+};
 
-  currentWeatherDiv.querySelector("#localTime").textContent = localTime;
+const updateCurrentWeather = (currentWeather) => {
+  const currentWeatherDiv = document.querySelector(".current-weather");
+
+  // Format the local time using toLocaleTimeString directly
+  const localTime = new Date(
+    (currentWeather.datetimeEpoch + currentWeather.tzoffset * 60) * 1000
+  ).toLocaleTimeString(undefined, {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+
+  updateElementText("#localTime", localTime);
+
   currentWeatherDiv.querySelector(
     ".weather-summary .weather-icon"
   ).src = `images/icons/${currentWeather.icon}.svg`;
-  currentWeatherDiv.querySelector(
-    ".weather-summary .weather-description"
-  ).textContent = currentWeather.conditions;
-  currentWeatherDiv.querySelector(
-    ".current-temp .temp-digit"
-  ).textContent = `${currentWeather.temperature}°F`;
+  updateElementText(
+    ".weather-summary .weather-description",
+    currentWeather.conditions
+  );
+  updateElementText(
+    ".current-temp .temp-digit",
+    `${currentWeather.temperature}°F`
+  );
 
-  currentWeatherDiv.querySelector(
-    "#feelsLike"
-  ).textContent = `${currentWeather.feelsLike}°F`;
-  currentWeatherDiv.querySelector(
-    "#humidity"
-  ).textContent = `${currentWeather.humidity}%`;
-  currentWeatherDiv.querySelector(
-    "#windSpeed"
-  ).textContent = `${currentWeather.windSpeed} mph`;
-  currentWeatherDiv.querySelector(
-    "#windGust"
-  ).textContent = `${currentWeather.windGust} mph`;
-  currentWeatherDiv.querySelector("#windDirection").textContent =
-    (0,_weatherData__WEBPACK_IMPORTED_MODULE_0__.getWindDirection)(currentWeather.windDirection);
-  currentWeatherDiv.querySelector(
-    "#visibility"
-  ).textContent = `${currentWeather.visibility} miles`;
+  updateElementText("#feelsLike", `${currentWeather.feelsLike}°F`);
+  updateElementText("#humidity", `${currentWeather.humidity}%`);
+  updateElementText("#windSpeed", `${currentWeather.windSpeed} mph`);
+  updateElementText("#windGust", `${currentWeather.windGust} mph`);
+  updateElementText(
+    "#windDirection",
+    (0,_weatherData__WEBPACK_IMPORTED_MODULE_0__.getWindDirection)(currentWeather.windDirection)
+  );
+  updateElementText("#visibility", `${currentWeather.visibility} miles`);
+};
 
-  // Dynamically add weekly forecast elements
+const updateWeeklyForecast = (weeklyForecast) => {
+  const sevenDayDiv = document.getElementById("sevenDayContainer");
   sevenDayDiv.innerHTML = ""; // Clear previous content
+
   weeklyForecast.forEach((day) => {
     const dayDiv = document.createElement("div");
     dayDiv.classList.add("seven-day-forecast__day");
@@ -786,11 +811,11 @@ const displayWeather = (data) => {
     });
 
     dayDiv.innerHTML = `
-    <p>${dayName}</p>
-    <img src="images/icons/${day.icon}.svg" alt="${day.conditions}" />
-    <p>High: ${day.temperatureHigh}°F</p>
-    <p>${day.conditions}</p>
-    <p>Low: ${day.temperatureLow}°F</p>
+      <p>${dayName}</p>
+      <img src="images/icons/${day.icon}.svg" alt="${day.conditions}" />
+      <p>${day.temperatureHigh}°F</p>
+      <p>${day.conditions}</p>
+      <p>${day.temperatureLow}°F</p>
     `;
 
     sevenDayDiv.appendChild(dayDiv);
@@ -892,6 +917,7 @@ const processWeatherData = (data) => {
 
   const todaysForecast = {
     location: data.resolvedAddress,
+    datetimeEpoch: data.days[0].datetimeEpoch,
     time: data.days[0].datetime,
     icon: data.days[0].icon,
     highTemp: data.days[0].tempmax,

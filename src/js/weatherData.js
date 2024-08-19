@@ -18,6 +18,7 @@ export const processWeatherData = (data) => {
 
   const todaysForecast = {
     location: data.resolvedAddress,
+    datetimeEpoch: data.days[0].datetimeEpoch,
     time: data.days[0].datetime,
     icon: data.days[0].icon,
     highTemp: data.days[0].tempmax,
