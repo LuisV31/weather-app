@@ -21,8 +21,8 @@ export const processWeatherData = (data) => {
     datetimeEpoch: data.days[0].datetimeEpoch,
     time: data.days[0].datetime,
     icon: data.days[0].icon,
-    highTemp: data.days[0].tempmax,
-    lowTemp: data.days[0].tempmin,
+    highTemp: Math.round(data.days[0].tempmax),
+    lowTemp: Math.round(data.days[0].tempmin),
     description: data.days[0].description,
   };
 
@@ -33,11 +33,11 @@ export const processWeatherData = (data) => {
     tzoffset: data.tzoffset,
     icon: data.currentConditions.icon,
     conditions: data.currentConditions.conditions,
-    temperature: data.currentConditions.temp,
-    feelsLike: data.currentConditions.feelslike,
+    temperature: Math.round(data.currentConditions.temp),
+    feelsLike: Math.round(data.currentConditions.feelslike),
     humidity: data.currentConditions.humidity,
-    windSpeed: data.currentConditions.windspeed,
-    windGust: data.currentConditions.windgust,
+    windSpeed: Math.round(data.currentConditions.windspeed),
+    windGust: Math.round(data.currentConditions.windgust),
     windDirection: data.currentConditions.winddir,
     visibility: data.currentConditions.visibility,
   };
@@ -45,9 +45,9 @@ export const processWeatherData = (data) => {
   const weeklyForecast = data.days.slice(1, 8).map((day) => ({
     date: day.datetime,
     icon: day.icon,
-    temperatureHigh: day.tempmax,
+    temperatureHigh: Math.round(day.tempmax),
     conditions: day.conditions,
-    temperatureLow: day.tempmin,
+    temperatureLow: Math.round(day.tempmin),
   }));
 
   return {

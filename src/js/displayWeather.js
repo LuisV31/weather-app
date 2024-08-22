@@ -102,11 +102,13 @@ const updateWeeklyForecast = (weeklyForecast) => {
     });
 
     dayDiv.innerHTML = `
-      <p>${dayName}</p>
+      <p class="day-name">${dayName}</p>
       <img src="images/icons/${day.icon}.svg" alt="${day.conditions}" />
-      <p>${day.temperatureHigh}°F</p>
-      <p>${day.conditions}</p>
-      <p>${day.temperatureLow}°F</p>
+      <p class="day-conditions">${day.conditions}</p>
+      <p class="high-temp">${day.temperatureHigh}</p>
+      <div
+        class="low-temp">${day.temperatureLow}
+      </div>
     `;
 
     sevenDayDiv.appendChild(dayDiv);
