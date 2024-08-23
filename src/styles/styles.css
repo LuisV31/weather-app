@@ -18,7 +18,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
 }
 
@@ -35,7 +35,7 @@ body {
   background-color: var(--white);
   border-radius: 8px;
   box-shadow: 0 0 10px var(--shadow-color);
-  overflow: hidden;
+  overflow: scroll;
 }
 
 /* Header Styling */
@@ -145,7 +145,7 @@ header {
   border-radius: 8px;
   box-shadow: 0 0 10px var(--shadow-color);
   border: 2px solid var(--border-color);
-  overflow: hidden;
+  overflow: auto;
 }
 
 .current-weather header {
@@ -219,7 +219,7 @@ header {
   background-color: var(--white);
   border-radius: 8px;
   box-shadow: 0 0 10px var(--shadow-color);
-  overflow: hidden;
+  overflow: auto;
 }
 
 .seven-day-forecast header {
