@@ -6,7 +6,7 @@ export const fetchWeather = async (location) => {
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=${apiKey}`
     );
     const data = await response.json();
-    console.log("API Response:", data); // Log the full API response
+    console.log("API Response:"); // Log the full API response
     return data;
   } catch (error) {
     console.error("Error fetching weather data:", error);
@@ -44,10 +44,13 @@ export const processWeatherData = (data) => {
 
   const weeklyForecast = data.days.slice(1, 8).map((day) => ({
     date: day.datetime,
+    datetimeEpoch: day.datetimeEpoch,
     icon: day.icon,
     temperatureHigh: Math.round(day.tempmax),
     conditions: day.conditions,
     temperatureLow: Math.round(day.tempmin),
+    precipprop: day.precipprob,
+    tzoffset: data.tzoffset,
   }));
 
   return {
