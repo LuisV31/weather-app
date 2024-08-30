@@ -521,10 +521,11 @@ button {
   }
 
   .day-info .day-name {
-    font-size: 14px;
+    font-size: 13px;
     text-align: left;
     color: yellow;
     background-color: transparent;
+    width: 185px;
   }
 
   .end-div {

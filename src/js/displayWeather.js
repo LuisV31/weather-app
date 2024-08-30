@@ -55,14 +55,18 @@ const updateTodaysWeather = (todaysForecast) => {
 const updateCurrentWeather = (currentWeather) => {
   const currentWeatherDiv = document.querySelector(".current-weather");
 
-  // Format the local time using toLocaleTimeString directly
-  const localTime = new Date(
-    (currentWeather.datetimeEpoch + currentWeather.tzoffset * 60) * 1000
-  ).toLocaleTimeString(undefined, {
+  // Convert datetimeEpoch to milliseconds and create a new Date object
+  const utcDate = new Date(currentWeather.datetimeEpoch * 1000);
+
+  // Use Intl.DateTimeFormat to handle timezone conversion based on the offset
+  const localTime = new Intl.DateTimeFormat("en-US", {
     hour: "2-digit",
     minute: "2-digit",
     hour12: true,
-  });
+    timeZone: `Etc/GMT${currentWeather.tzoffset >= 0 ? "-" : "+"}${Math.abs(
+      currentWeather.tzoffset
+    )}`,
+  }).format(utcDate);
 
   updateElementText("#localTime", localTime);
 
