@@ -38,7 +38,7 @@ const updateTodaysWeather = (todaysForecast) => {
   // Format today's date using local time
   const formattedDate = formatLocalTimeWithOffset(todaysForecast.datetimeEpoch);
 
-  updateElementText("#location", `${todaysForecast.location}'s Weather for:`);
+  updateElementText("#location", `${todaysForecast.location}'s Weather:`);
   updateElementText("#date", formattedDate);
 
   const todaysInfoDiv = document.querySelector(".todays-forecast");
