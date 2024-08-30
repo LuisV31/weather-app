@@ -13,7 +13,7 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
   background-color: #f0f0f0;
   justify-content: center;
   display: flex;
@@ -25,13 +25,29 @@ body {
 
 .main-header {
   width: 100%;
-  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--dark-blue);
   color: var(--white);
-  padding: 10px 0px;
+  padding: 10px 15px;
+  text-shadow: var(--white-text-shadow);
   box-shadow: 0 2px 5px var(--shadow-color);
-  top: 0;
-  z-index: 1000;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.header-logo {
+  height: 60px;
+  margin-right: 15px;
+}
+.header-title {
+  font-family: "Open Sans", Arial, sans-serif; /* Ensure consistent font usage */
+  text-transform: uppercase; /* Make the title uppercase for emphasis */
+  font-weight: 700; /* Increase the font weight for better emphasis */
+  letter-spacing: 1.5px; /* Slightly increase letter spacing for a cleaner look */
 }
 
 /* Container Styling */
@@ -239,6 +255,7 @@ header {
   text-align: left;
   border-radius: 10px 10px 0px 0px;
   box-shadow: 0 0 5px var(--shadow-color);
+  text-shadow: var(--white-text-shadow);
   box-sizing: border-box;
   overflow: hidden;
   font-size: large;
@@ -348,6 +365,16 @@ button {
     flex-grow: 1;
   }
 
+  .main-header {
+    padding: 10px;
+    font-size: 20px;
+  }
+
+  .header-logo {
+    height: 45px;
+    margin-right: 10px;
+  }
+
   /* Today's Forecast Section */
   .todays-forecast {
     display: flex;
@@ -387,8 +414,8 @@ button {
   }
 
   .weather-icon-container img {
-    width: 75px;
-    height: 75px;
+    width: 100px;
+    height: 100px;
   }
 
   #todaysWeatherDescription {
@@ -509,7 +536,6 @@ button {
 
   .day-info {
     flex-grow: 1;
-    padding: 0 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -525,7 +551,6 @@ button {
     text-align: left;
     color: yellow;
     background-color: transparent;
-    width: 185px;
   }
 
   .end-div {
@@ -539,7 +564,7 @@ button {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 8px 8px 0px 8px;
+    padding: 8px 0px 0px 0px;
   }
 
   .temp-div .high-temp,
@@ -558,7 +583,7 @@ button {
     align-items: center;
     justify-content: flex-end;
     width: 100%;
-    padding: 4px 8px 8px 8px;
+    padding: 4px 0px 8px 0px;
     gap: 4px;
   }
 

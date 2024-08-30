@@ -101,7 +101,7 @@ const createDayHTML = (day) => {
 
   const dayName = isMobile
     ? localDate.toLocaleDateString("en-US", {
-        weekday: "long",
+        weekday: "short",
         month: "long",
         day: "numeric",
       })
